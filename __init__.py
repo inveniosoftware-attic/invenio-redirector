@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#
+##
 ## This file is part of Invenio.
 ## Copyright (C) 2013 CERN.
 ##
@@ -15,26 +15,4 @@
 ##
 ## You should have received a copy of the GNU General Public License
 ## along with Invenio; if not, write to the Free Software Foundation, Inc.,
-## 59 Temple Place, Suite 330, Boston, MA 02D111-1307, USA.
-
-"""
-GoTo database models.
-"""
-
-# General imports.
-from invenio.ext.sqlalchemy import db
-
-# Create your models here.
-
-
-class Goto(db.Model):
-    """Represents a Goto record."""
-    __tablename__ = 'goto'
-    label = db.Column(db.String(150), primary_key=True)
-    plugin = db.Column(db.String(150), nullable=False)
-    parameters = db.Column(db.Text, nullable=False)
-    creation_date = db.Column(db.DateTime, nullable=False, index=True)
-    modification_date = db.Column(db.DateTime, nullable=False, index=True)
-
-
-__all__ = ['Goto']
+## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
