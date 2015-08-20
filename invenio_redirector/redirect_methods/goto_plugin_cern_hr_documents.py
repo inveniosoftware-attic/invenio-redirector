@@ -24,12 +24,12 @@ This implements a redirection for CERN HR Documents in the CERN Document
 Server. It's useful as a reference on how goto plugins could be implemented.
 """
 
-import time
 import re
+import time
 
-from invenio.legacy.search_engine import perform_request_search
-from invenio.legacy.bibrecord import get_fieldvalues
 from invenio.legacy.bibdocfile.api import BibRecDocs, InvenioBibDocFileError
+from invenio.legacy.bibrecord import get_fieldvalues
+from invenio.legacy.search_engine import perform_request_search
 
 
 def make_cern_ssr_docname(lang, edition, modif=0):
@@ -83,7 +83,7 @@ def goto(type, document='', number=0, lang='en', modif=0):
     # FIXME the docs
     today = time.strftime('%Y-%m-%d')
     if type == 'SRR':
-        ## We would like a CERN Staff Rules and Regulations
+        # We would like a CERN Staff Rules and Regulations
         recids = perform_request_search(
             cc='Staff Rules and Regulations',
             f="925__a:1996-01-01->%s 925__b:%s->9999-99-99" % (today, today))
@@ -166,7 +166,7 @@ def register_hr_redirections():
     from invenio.modules.redirector.api import register_redirection
     plugin = 'goto_plugin_cern_hr_documents'
 
-    ## Staff rules and regulations
+    # Staff rules and regulations
     for modif in range(1, 20):
         for lang in ('en', 'fr'):
             register_redirection('hr-srr-modif%02d-%s' % (modif, lang),
@@ -180,7 +180,7 @@ def register_hr_redirections():
                                          'lang': lang,
                                          'modif': 0})
 
-    ## Operational Circulars
+    # Operational Circulars
     for number in range(1, 10):
         for lang in ('en', 'fr'):
             register_redirection('hr-oper-circ-%s-%s' % (number, lang),
@@ -198,7 +198,7 @@ def register_hr_redirections():
                             'document': '%s-%s' % (special_document, lang),
                             'number': number})
 
-    ## Administrative Circulars:
+    # Administrative Circulars:
     for number in range(1, 32):
         for lang in ('en', 'fr'):
             register_redirection('hr-admin-circ-%s-%s' % (number, lang),

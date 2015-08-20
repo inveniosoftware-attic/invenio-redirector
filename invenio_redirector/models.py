@@ -20,12 +20,15 @@
 """GoTo database models."""
 
 # External imports
-from sqlalchemy.orm import validates
 import datetime
+
+from sqlalchemy.orm import validates
 
 # General imports.
 from invenio.ext.sqlalchemy import db
+
 from .registry import redirect_methods
+
 
 # Create your models here.
 
