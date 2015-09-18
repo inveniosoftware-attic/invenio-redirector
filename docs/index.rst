@@ -26,22 +26,22 @@
 API
 ===
 
-.. automodule:: invenio.modules.redirector
+.. automodule:: invenio_redirector
     :members:
 
-.. automodule:: invenio.modules.redirector.api
+.. automodule:: invenio_redirector.api
     :members:
 
 Model
 -----
 
-.. automodule:: invenio.modules.redirector.models
+.. automodule:: invenio_redirector.models
     :members:
 
 Manage
 ------
 
-.. automodule:: invenio.modules.redirector.manage
+.. automodule:: invenio_redirector.manage
     :members:
 
 
