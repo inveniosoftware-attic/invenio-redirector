@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2013, 2014 CERN.
+# Copyright (C) 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -22,10 +22,10 @@
 # External imports
 import datetime
 
-from sqlalchemy.orm import validates
-
 # General imports.
-from invenio.ext.sqlalchemy import db
+from invenio_ext.sqlalchemy import db
+
+from sqlalchemy.orm import validates
 
 from .registry import redirect_methods
 
@@ -67,11 +67,11 @@ class Goto(db.Model):
         self._parameters = value or {}
 
     def to_dict(self):
-        """ Return a dict representation of Goto."""
+        """Return a dict representation of Goto."""
         return {'label': self.label,
                 'plugin': self.plugin,
                 'parameters': self.parameters,
                 'creation_date': self.creation_date,
                 'modification_date': self.modification_date}
 
-__all__ = ['Goto']
+__all__ = ('Goto',)

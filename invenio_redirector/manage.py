@@ -21,7 +21,7 @@
 
 from __future__ import print_function
 
-from invenio.ext.script import Manager
+from invenio_ext.script import Manager
 
 manager = Manager(usage=__doc__)
 

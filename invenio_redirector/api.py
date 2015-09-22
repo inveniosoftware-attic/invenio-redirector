@@ -19,7 +19,7 @@
 
 """Redirecting engine."""
 
-from invenio.ext.sqlalchemy import db
+from invenio_ext.sqlalchemy import db
 
 from .models import Goto
 
@@ -97,7 +97,7 @@ def update_redirection(label, plugin, parameters=None):
     goto.parameters = parameters
     try:
         db.session.merge(goto)
-    except:
+    except Exception:
         db.session.rollback()
         # FIXME add re-raise exception
     finally:
