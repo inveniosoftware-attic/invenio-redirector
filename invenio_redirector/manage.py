@@ -31,7 +31,7 @@ manager = Manager(usage=__doc__)
                 action="store_true")
 def create(label, plugin, parameters, update_redirection=False):
     """Register redirection page."""
-    from invenio.utils.json import json, json_unicode_to_utf8
+    from invenio_utils.json import json, json_unicode_to_utf8
     from .api import register_redirection
 
     parameters = json_unicode_to_utf8(json.loads(parameters))
@@ -54,7 +54,7 @@ def read(label):
 @manager.option("-p", "--parameters", dest="parameters")
 def update(label, plugin, parameters=None):
     """Update an existing redirection."""
-    from invenio.utils.json import json, json_unicode_to_utf8
+    from invenio_utils.json import json, json_unicode_to_utf8
     from .api import update_redirection
     parameters = parameters or '{}'
     parameters = json_unicode_to_utf8(json.loads(parameters))
